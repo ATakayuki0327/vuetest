@@ -1,11 +1,10 @@
 import { describe, it, expect } from 'vitest'
+import HelloWorldPageObject from '../pageObjects/HelloWorldPageObject';
 
-import { mount } from '@vue/test-utils'
-import HelloWorld from '../../HelloWorld.vue'
 
-describe('HelloWorld', () => {
+describe('.greetings h1要素にHello Vitestを渡して正しく表示されているか', () => {
   it('renders properly', () => {
-    const wrapper = mount(HelloWorld, { props: { msg: 'Hello Vitest' } })
-    expect(wrapper.text()).toContain('Hello Vitest')
+    const wrapper = new HelloWorldPageObject('Hello Vitest');
+    expect(wrapper.messageText).toContain('Hello Vitest')
   })
 })
